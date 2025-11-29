@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>French Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+            text-align: center;
+        }
+        .head {
+            margin-left: 38%;
+            margin-top: 10px;
+            display: flex;
+            font-style: italic;
+            font-size: larger;
+            text-decoration: underline;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .caption {
+            font-size: 1.5rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e0b05;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            width: 100%;
+            background-color: #02121e;
+            color: orange;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>French Cuisine</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+
+    <div class="head">
+        <h1>Authentic French Recipes</h1>
+    </div>
+
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="frimage-1.webp" alt="Coq au Vin" onclick="showRecipe('Coq au Vin', 
+            `<h3>Serving Size:</h3>Serves 6<br>
+            <h4>Prep Time:</h4>30 min<br>
+            <h4>Marination Time:</h4>12-24 hrs<br>
+            <h4>Cook Time:</h4>1.5-2 hrs<br>
+            <h4>Total Time:</h4>14-26 hrs<br>
+            <h3>Ingredients:</h3>
+            • 1 whole chicken (about 2 kg/4.4 lbs), cut into 8 pieces<br>
+            • 750ml red wine (Burgundy/Pinot Noir)<br>
+            • 2 carrots, chopped<br>
+            • 2 celery stalks, chopped<br>
+            • 1 large onion, chopped<br>
+            • 4 garlic cloves, crushed<br>
+            • 2 bay leaves<br>
+            • 4 sprigs fresh thyme<br>
+            • 200g bacon lardons<br>
+            • 24 pearl onions<br>
+            • 250g button mushrooms<br>
+            • 3 tbsp butter<br>
+            • 2 tbsp olive oil<br>
+            • 2 tbsp all-purpose flour<br>
+            • 2 tbsp brandy (optional)<br>
+            • Salt and pepper<br>`,
+            `<h3>Instructions:</h3>
+            1. Marinate chicken with vegetables, wine, and herbs for 12-24 hrs.<br>
+            2. Remove chicken, pat dry, reserve marinade.<br>
+            3. Brown bacon, then chicken in same pot.<br>
+            4. Sauté onions and mushrooms, set aside.<br>
+            5. Make roux, add marinade, thicken sauce.<br>
+            6. Simmer chicken in sauce 1 hr.<br>
+            7. Add bacon, onions, mushrooms for last 15 min.<br>
+            8. Serve hot with bread or potatoes.`)">
+            <div class="caption">Coq au Vin</div>
+        </div>
+        <div class="gallery-item">
+            <img src="frimage-2.jpg" alt="Ratatouille" onclick="showRecipe('Classic Ratatouille',
+            '<h3>Ingredients (Serves 6-8):</h3>\
+            <h4>For the Tomato Sauce Base:</h4>\
+            • 2 large onions, finely diced<br>\
+            • 6 garlic cloves, minced<br>\
+            • 2 red bell peppers, diced<br>\
+            • 800g (28 oz) canned crushed tomatoes<br>\
+            • 2 tablespoons tomato paste<br>\
+            • 1/4 cup extra virgin olive oil<br>\
+            <h4>For the Vegetables:</h4>\
+            • 2 large eggplants, sliced into 1/4-inch rounds<br>\
+            • 4 medium zucchini, sliced into 1/4-inch rounds<br>\
+            • 6 ripe Roma tomatoes, sliced into 1/4-inch rounds<br>\
+            <h4>For Seasoning:</h4>\
+            • 1/4 cup fresh basil, chopped<br>\
+            • 2 tablespoons fresh thyme leaves<br>\
+            • 2 teaspoons Herbes de Provence<br>\
+            • Salt and freshly ground black pepper<br>\
+            • Extra virgin olive oil for drizzling<br>\
+            <h4>Time Required:</h4>\
+            • Prep Time: 45 minutes<br>\
+            • Cooking Time: 1 hour 15 minutes<br>\
+            • Total Time: 2 hours<br>\
+            <h4>Difficulty Level: Intermediate</h4>\
+            <h4>Equipment Needed:</h4>\
+            • Large oval or round baking dish<br>\
+            • Sharp knife<br>\
+            • Mandoline (optional but recommended)<br>\
+            • Large sauté pan<br>\
+            • Parchment paper',
+            '<h3>Detailed Instructions:</h3>\
+            <h4>Preparation:</h4>\
+            1. Preheat oven to 375°F (190°C). Salt eggplant slices and let drain for 30 minutes.<br><br>\
+            2. Pat eggplant dry with paper towels.<br><br>\
+            <h4>Making the Sauce Base:</h4>\
+            3. Heat olive oil in large pan over medium heat. Add onions and cook until soft (5-7 minutes).<br><br>\
+            4. Add garlic, cook for 1 minute until fragrant.<br><br>\
+            5. Add diced peppers, cook for 5 minutes.<br><br>\
+            6. Add crushed tomatoes, tomato paste, half the herbs, salt, and pepper. Simmer 15 minutes.<br><br>\
+            <h4>Assembly:</h4>\
+            7. Spread sauce evenly in baking dish.<br><br>\
+            8. Arrange vegetable slices in alternating pattern, slightly overlapping, in a circular design.<br><br>\
+            9. Drizzle with olive oil, remaining herbs, salt, and pepper.<br><br>\
+            10. Cover with parchment paper cut to fit dish.<br><br>\
+            <h4>Baking:</h4>\
+            11. Bake covered for 45 minutes.<br><br>\
+            12. Remove parchment, bake additional 15-20 minutes until vegetables are tender.<br><br>\
+            13. Let rest for 10 minutes before serving.<br><br>\
+            <h4>Tips:</h4>\
+            • Choose vegetables of similar diameter for even cooking<br>\
+            • Can be served hot, room temperature, or cold<br>\
+            • Improves in flavor next day<br>\
+            • Freezes well for up to 3 months<br>\
+            • For best results, use fresh, in-season vegetables')">
+            <div class="caption">Ratatouille</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="frimage-3.jpg" alt="Bouillabaisse" onclick="showRecipe('Bouillabaisse',
+            '<h3>Ingredients (Serves 6-8):</h3>\
+            <h4>For the Soup Base:</h4>\
+            • 1/4 cup extra virgin olive oil<br>\
+            • 2 large leeks, white and light green parts, sliced<br>\
+            • 2 onions, finely chopped<br>\
+            • 1 fennel bulb, finely chopped<br>\
+            • 6 garlic cloves, minced<br>\
+            • 4 large ripe tomatoes, chopped<br>\
+            • 2 oranges, zested<br>\
+            • 2 pinches saffron threads<br>\
+            • 2 bay leaves<br>\
+            • 4 sprigs fresh thyme<br>\
+            • 1 cup dry white wine<br>\
+            • 6 cups fish stock<br>\
+            <h4>For the Seafood:</h4>\
+            • 500g (1 lb) firm white fish (sea bass, monkfish, red snapper), cut into chunks<br>\
+            • 500g (1 lb) mixed shellfish (mussels, clams)<br>\
+            • 8 large prawns<br>\
+            • 250g (1/2 lb) fresh squid, sliced<br>\
+            <h4>For the Rouille:</h4>\
+            • 2 red peppers, roasted and peeled<br>\
+            • 2 garlic cloves<br>\
+            • 1 slice white bread, crusts removed<br>\
+            • 1 egg yolk<br>\
+            • 1 cup olive oil<br>\
+            • Cayenne pepper to taste<br>\
+            <h4>Time Required:</h4>\
+            • Prep Time: 45 minutes<br>\
+            • Cooking Time: 1 hour<br>\
+            • Total Time: 1 hour 45 minutes<br>\
+            <h4>Difficulty Level: Advanced</h4>',
+            '<h3>Detailed Instructions:</h3>\
+            <h4>Preparing the Base:</h4>\
+            1. Heat olive oil in large pot. Sauté leeks, onions, and fennel until soft (10 minutes).<br><br>\
+            2. Add garlic, cook 1 minute until fragrant.<br><br>\
+            3. Add tomatoes, orange zest, saffron, herbs, and wine. Simmer 5 minutes.<br><br>\
+            4. Add fish stock, bring to boil, reduce heat and simmer 30 minutes.<br><br>\
+            <h4>Making the Rouille:</h4>\
+            5. Blend roasted peppers, garlic, bread, and egg yolk until smooth.<br><br>\
+            6. Gradually add oil while blending to emulsify.<br><br>\
+            7. Season with cayenne, salt, and pepper. Refrigerate.<br><br>\
+            <h4>Cooking the Seafood:</h4>\
+            8. Add firm fish to simmering broth, cook 5 minutes.<br><br>\
+            9. Add shellfish, cook 3-4 minutes until shells open.<br><br>\
+            10. Add prawns and squid, cook 2-3 minutes until just done.<br><br>\
+            <h4>Serving:</h4>\
+            11. Place crusty bread in bowls, rub with garlic.<br><br>\
+            12. Ladle soup and seafood over bread.<br><br>\
+            13. Serve with rouille on the side.<br><br>\
+            <h4>Tips:</h4>\
+            • Use the freshest seafood possible<br>\
+            • Make fish stock from scratch for best results<br>\
+            • Discard any shellfish that dont open<br>\
+            • Serve immediately while hot')">
+            <div class="caption">Bouillabaisse</div>
+        </div>
+        <div class="gallery-item">
+            <img src="frimage-4.jpg" alt="Crème Brûlée" onclick="showRecipe('Classic Crème Brûlée',
+            '<h3>Ingredients (Serves 6):</h3>\
+            <h4>For the Custard:</h4>\
+            • 2 cups (480ml) heavy cream<br>\
+            • 1 vanilla bean, split and scraped (or 1 tablespoon pure vanilla extract)<br>\
+            • 1/4 cup (50g) granulated sugar, plus more for topping<br>\
+            • 4 large egg yolks, room temperature<br>\
+            • Pinch of salt<br>\
+            <h4>For the Topping:</h4>\
+            • 6 tablespoons granulated sugar (1 tablespoon per ramekin)<br>\
+            <h4>Time Required:</h4>\
+            • Prep Time: 20 minutes<br>\
+            • Cooking Time: 35-40 minutes<br>\
+            • Chilling Time: 4 hours minimum<br>\
+            • Total Time: 5 hours<br>\
+            <h4>Difficulty Level: Intermediate</h4>\
+            <h4>Equipment Needed:</h4>\
+            • 6 (4 oz) ramekins<br>\
+            • Large baking dish for water bath<br>\
+            • Fine-mesh strainer<br>\
+            • Kitchen torch<br>\
+            • Instant-read thermometer (optional)',
+            '<h3>Detailed Instructions:</h3>\
+            <h4>Preparation:</h4>\
+            1. Preheat oven to 300°F (150°C). Arrange ramekins in large baking dish.<br><br>\
+            2. If using vanilla bean, heat cream with split bean and seeds until almost boiling. Let steep 15 minutes.<br><br>\
+            3. If using extract, heat cream until almost boiling and add extract after removing from heat.<br><br>\
+            <h4>Making the Custard:</h4>\
+            4. Whisk egg yolks, sugar, and salt until pale and slightly thickened.<br><br>\
+            5. Slowly stream hot cream into egg mixture, whisking constantly.<br><br>\
+            6. Strain mixture through fine-mesh strainer.<br><br>\
+            7. Pour into ramekins, filling almost to the top.<br><br>\
+            <h4>Baking:</h4>\
+            8. Pour hot water into baking dish halfway up sides of ramekins.<br><br>\
+            9. Bake 35-40 minutes until edges are set but center jiggles slightly.<br><br>\
+            10. Internal temperature should reach 170-175°F (77-79°C).<br><br>\
+            11. Remove from water bath, cool to room temperature.<br><br>\
+            12. Cover with plastic wrap and refrigerate at least 4 hours or overnight.<br><br>\
+            <h4>Finishing:</h4>\
+            13. Just before serving, sprinkle 1 tablespoon sugar evenly over each custard.<br><br>\
+            14. Use torch to caramelize sugar until dark amber and bubbling.<br><br>\
+            15. Let caramel harden 2-3 minutes before serving.<br><br>\
+            <h4>Tips:</h4>\
+            • Ensure water bath is hot but not boiling<br>\
+            • Don\'t overbake - custard should be set but still trembling<br>\
+            • Can be made up to 2 days ahead (without sugar topping)<br>\
+            • For best results, torch sugar just before serving')">
+            <div class="caption">Crème Brûlée</div>
+        </div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <div id="recipeIngredients"></div>
+            <div id="recipeSteps"></div>
+        </div>
+    </div>
+
+    <center><a href="Home.html" class="back-button">Back to Home</a></center>
+
+    <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  
+    </footer>
+
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerHTML = title;
+            document.getElementById('recipeIngredients').innerHTML = ingredients;
+            document.getElementById('recipeSteps').innerHTML = steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('recipeModal')) {
+                closeRecipe();
+            }
+        }
+    </script>
+</body>
+</html>

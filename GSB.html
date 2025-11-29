@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Recipe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+        }
+        .para {
+            color: rgb(94, 11, 5);
+            max-width: 95%;
+            margin: auto;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+        .head {
+            margin-left: 38%;
+            margin-top: 10px;
+            display: flex;
+            font-style: italic;
+            font-size: larger;
+            text-decoration: underline;
+        }
+        .head img {
+            border-radius: 70px;
+            padding: 8px;
+            width: 10%;
+            height: 10%;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .caption {
+            font-size: 1.2rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .footer {
+			margin: 0%;
+			background-color: rgb(4, 4, 39);
+			color: azure;
+		}		
+	    .footer {
+			margin: 0%;
+			background-color: rgb(2, 2, 39);
+			color: azure;
+		}		
+	    footer {
+                width: 100%;
+                background-color: #02121e; 
+                color: orange;
+                padding: 100px 60px;
+                text-align: center;
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center; 
+        }
+         .bot button {
+        margin-left: 90%;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .bot button:hover {
+        background-color: #000000;
+        color: rgb(244, 98, 0);
+    }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Lord's Taste Book</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+    <div class="head">
+        <h1>ARABIC CUISINE</h1>
+        <img src="file:///C:/Users/suhas/OneDrive/Desktop/M%20project/Varun%20Chef/RECIPIE-STUFF/arabic.png" alt="p">
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="file:///C:/Users/suhas/OneDrive/Desktop/M%20project/Varun%20Chef/RECIPIE-STUFF/kibbeh.png" alt="Dish 2" onclick="showRecipe('Dish 2', 'Ingredients: Pasta, Tomato, Cheese', 'Boil pasta, add sauce, and mix cheese.')">
+            <div class="caption">Kibbeh</div>
+        </div>
+        <div class="gallery-item">
+            <img src="file:///C:/Users/suhas/OneDrive/Desktop/M%20project/Varun%20Chef/RECIPIE-STUFF/mauta.png" alt="Dish 2" onclick="showRecipe('Dish 2', 'Ingredients: Pasta, Tomato, Cheese', 'Boil pasta, add sauce, and mix cheese.')">
+            <div class="caption">Moutabal</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="file:///C:/Users/suhas/OneDrive/Desktop/M%20project/Varun%20Chef/RECIPIE-STUFF/tabbou.png" alt="Dish 3" onclick="showRecipe('Dish 3', 'Ingredients: Vegetables, Spices', 'Chop vegetables and cook with spices.')">
+            <div class="caption">Tabbouleh</div>
+        </div>
+        <div class="gallery-item">
+            <img src="file:///C:/Users/suhas/OneDrive/Desktop/M%20project/Varun%20Chef/RECIPIE-STUFF/falafal.png" alt="Dish 4" onclick="showRecipe('Dish 4', 'Ingredients:1 cup dried chickpeas (soaked overnight)<br>• 1 small onion, chopped<br>• 3 cloves garlic<br>• 1 cup fresh parsley• 1 cup fresh cilantro<br>• 1 tsp cumin<br>• 1 tsp coriander<br>• 1/2 tsp baking soda<br>• 2 tbsp flour (optional)<br>• Salt and pepper to taste<br>• Oil for frying',
+'Instructions:1. Drain and dry soaked chickpeas<br>2. Blend chickpeas, onion, garlic, parsley, cilantro, and spices<br>3. Add baking soda and mix well<br>4. Chill mixture for 30 mins<br>5. Form into balls or patties<br>6. Heat oil and fry until golden brown<br>7. Drain on paper towel<br>8. Serve hot with tahini sauce or in pita')">
+            <div class="caption">Falafal</div>
+        </div>
+        
+    </div>
+
+     <div class="bot">
+        <a href="Home.html">
+            <button>Back</button>
+        </a>
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <p id="recipeIngredients"></p>
+            <p id="recipeSteps"></p>
+        </div>
+    </div>
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerText = title;
+            document.getElementById('recipeIngredients').innerText = "Ingredients: " + ingredients;
+            document.getElementById('recipeSteps').innerText = "Steps: " + steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+    </script>    
+       <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  </footer>
+</body>
+</body>
+</html>

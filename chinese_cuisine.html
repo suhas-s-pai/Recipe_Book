@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Chinese Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+            text-align: center;
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .caption {
+            font-size: 1.5rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e0b05;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            width: 100%;
+            background-color: #02121e;
+            color: orange;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Chinese Cuisine</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="chimage-1.webp" alt="Kung Pao Chicken" onclick="showRecipe('Kung Pao Chicken', 
+            `<h3>Serving Size:</h3>Serves 4<br>
+            <h4>Prep Time:</h4>20 min<br>
+            <h4>Cook Time:</h4>20 min<br>
+            <h4>Total Time:</h4>40 min<br>
+            <h3>Ingredients:</h3>
+            • 500g chicken thighs, diced<br>
+            • 1 cup peanuts<br>
+            • 2 green onions, chopped<br>
+            • 3 cloves garlic, minced<br>
+            • 1 inch ginger, minced<br>
+            • 6-8 dried red chilies<br>
+            • 2 tbsp soy sauce<br>
+            • 1 tbsp dark soy sauce<br>
+            • 1 tbsp Chinese black vinegar<br>
+            • 1 tbsp cornstarch<br>
+            • 1 tsp Sichuan peppercorns<br>
+            • 2 tbsp vegetable oil<br>
+            • 1 tsp sugar<br>
+            • 1/2 tsp salt<br>`,
+            `<h3>Instructions:</h3>
+            1. Marinate chicken with soy sauce, cornstarch, and a pinch of salt for 10 min.<br>
+            2. Toast peanuts until golden, set aside.<br>
+            3. Heat oil in wok until smoking.<br>
+            4. Stir-fry dried chilies and Sichuan peppercorns until fragrant.<br>
+            5. Add chicken, stir-fry until golden.<br>
+            6. Add garlic and ginger, cook 1 min.<br>
+            7. Add dark soy sauce, vinegar, sugar, and salt.<br>
+            8. Toss in peanuts and green onions.<br>
+            9. Serve hot with steamed rice.`)">
+            <div class="caption">Kung Pao Chicken</div>
+        </div>
+        <div class="gallery-item">
+            <img src="chimage-2.jpg" alt="Dim Sum" onclick="showRecipe('Dim Sum - Har Gow (Shrimp Dumplings)',
+            `<h3>Serving Size:</h3>Makes 20 dumplings<br>
+            <h4>Prep Time:</h4>30 min<br>
+            <h4>Cook Time:</h4>10 min<br>
+            <h4>Total Time:</h4>40 min<br>
+            <h3>Ingredients:</h3>
+            <b>For Wrapper:</b><br>
+            • 1 cup wheat starch<br>
+            • 1/4 cup tapioca starch<br>
+            • 1 cup boiling water<br>
+            • 1 tbsp oil<br>
+            <b>For Filling:</b><br>
+            • 300g shrimp, minced<br>
+            • 1 tbsp bamboo shoots, minced<br>
+            • 1 tsp ginger, grated<br>
+            • 1 tsp sesame oil<br>
+            • 1/2 tsp white pepper<br>
+            • 1/2 tsp salt<br>
+            • 1 egg white<br>`,
+            `<h3>Instructions:</h3>
+            1. Mix starches, add boiling water and oil, knead into smooth dough, rest.<br>
+            2. Mix all filling ingredients.<br>
+            3. Roll dough into thin circles.<br>
+            4. Place filling in center, pleat edges to form dumplings.<br>
+            5. Steam for 6-7 minutes.<br>
+            6. Serve with soy sauce and chili oil.`)">
+            <div class="caption">Dim Sum</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="chimage-3.jpg" alt="Mapo Tofu" onclick="showRecipe('Mapo Tofu',
+            '<h3>Ingredients:</h3>• 400g soft tofu, cubed<br>• 200g ground pork<br>• 2 tbsp doubanjiang (spicy bean paste)<br>• 2 cloves garlic, minced<br>• 1 inch ginger, minced<br>• 2 green onions<br>• 1 cup chicken stock<br>• 2 tbsp soy sauce<br>• 1 tsp Sichuan peppercorns<br>• 2 tbsp cornstarch slurry<br>• Chili oil to taste',
+            '<h3>Instructions:</h3>1. Brown ground pork in wok<br>2. Add doubanjiang, garlic, and ginger<br>3. Pour in chicken stock<br>4. Add tofu cubes carefully<br>5. Simmer for 3-4 minutes<br>6. Add soy sauce and ground Sichuan pepper<br>7. Thicken with cornstarch slurry<br>8. Garnish with green onions and chili oil<br>9. Serve hot with steamed rice')">
+            <div class="caption">Mapo Tofu</div>
+        </div>
+        <div class="gallery-item">
+            <img src="chimage-4.jpg" alt="Egg Fried Rice" onclick="showRecipe('Classic Egg Fried Rice',
+            '<h3>Ingredients:</h3>• 3 cups cooked rice (day-old)<br>• 3 eggs, beaten<br>• 1 cup mixed vegetables (peas, carrots)<br>• 2 green onions, chopped<br>• 2 cloves garlic, minced<br>• 3 tbsp soy sauce<br>• 1 tbsp sesame oil<br>• 2 tbsp vegetable oil<br>• White pepper to taste<br>• Salt to taste',
+            '<h3>Instructions:</h3>1. Break up any rice clumps<br>2. Heat wok until smoking hot<br>3. Scramble eggs, set aside<br>4. Stir-fry vegetables and garlic<br>5. Add rice, break up any clumps<br>6. Add soy sauce and sesame oil<br>7. Mix in scrambled eggs<br>8. Season with white pepper<br>9. Garnish with green onions')">
+            <div class="caption">Egg Fried Rice</div>
+        </div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <div id="recipeIngredients"></div>
+            <div id="recipeSteps"></div>
+        </div>
+    </div>
+
+    <center><a href="Home.html" class="back-button">Back to Home</a></center>
+
+    <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  
+    </footer>
+
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerHTML = title;
+            document.getElementById('recipeIngredients').innerHTML = ingredients;
+            document.getElementById('recipeSteps').innerHTML = steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('recipeModal')) {
+                closeRecipe();
+            }
+        }
+    </script>
+</body>
+</html> 

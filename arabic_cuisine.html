@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Arabic Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .caption {
+            font-size: 1.5rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e0b05;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+        footer {
+            width: 100%;
+            background-color: #02121e;
+            color: orange;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Arabic Cuisine</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="ar-1.jpg" alt="Shawarma" onclick="showRecipe('Chicken Shawarma', 
+            `<h3>Serving Size:</h3>Serves 4-6<br>
+            <h4>Prep Time:</h4>20 min<br>
+            <h4>Marination Time:</h4>2-8 hrs<br>
+            <h4>Cook Time:</h4>25-30 min<br>
+            <h4>Total Time:</h4>2 hrs 50 min minimum<br>
+            <h3>Ingredients:</h3>
+            <b>For the Marinade:</b><br>
+            • 1 kg (2.2 lbs) boneless chicken thighs, sliced into strips<br>
+            • 4 tbsp extra virgin olive oil<br>
+            • 2 tbsp fresh lemon juice<br>
+            • 3 large cloves garlic, minced<br>
+            • 1 tsp ground cumin<br>
+            • 1 tsp ground coriander<br>
+            • 1 tsp sweet paprika<br>
+            • 1/2 tsp ground turmeric<br>
+            • 1/2 tsp ground cinnamon<br>
+            • 1 tsp salt<br>
+            • 1/2 tsp black pepper<br>
+            <b>For Serving:</b><br>
+            • 6-8 pieces pita bread<br>
+            • 1/2 cup tahini sauce<br>
+            • 2 medium tomatoes, diced<br>
+            • 1 cucumber, sliced<br>
+            • 1 red onion, thinly sliced<br>
+            • Fresh parsley, chopped<br>
+            • Pickles (optional)<br>`,
+            `<h3>Instructions:</h3>
+            <b>Marinade Preparation:</b><br>
+            1. In a large bowl, combine olive oil, lemon juice, minced garlic, and all spices. Mix well to form a paste.<br>
+            2. Add the sliced chicken thighs to the marinade and massage well to coat evenly. Cover and refrigerate for at least 2 hours, preferably overnight.<br>
+            <b>Cooking:</b><br>
+            3. Remove marinated chicken from refrigerator 30 minutes before cooking.<br>
+            4. Grill: Preheat to medium-high (400°F/200°C). Thread chicken onto skewers and grill for 12-15 min, turning occasionally.<br>
+            5. Oven: Preheat to 400°F (200°C). Spread chicken on a baking sheet and roast for 25-30 min, turning halfway.<br>
+            <b>Assembly:</b><br>
+            6. Let meat rest for 5-10 min, then slice into thin strips.<br>
+            7. Warm pita bread.<br>
+            8. Spread tahini sauce on each pita.<br>
+            9. Layer with chicken, tomatoes, cucumber, onions, parsley, and pickles.<br>
+            10. Wrap tightly and serve.<br>`)">
+            <div class="caption">Chicken Shawarma</div>
+        </div>
+        <div class="gallery-item">
+            <img src="ar-2.jpeg"Hummus" onclick="showRecipe('Classic Hummus',
+            `<h3>Serving Size:</h3>Serves 6-8<br>
+            <h4>Prep Time:</h4>10 min<br>
+            <h4>Cook Time:</h4>0 min<br>
+            <h4>Total Time:</h4>10 min<br>
+            <h3>Ingredients:</h3>
+            • 2 cans (15 oz each) chickpeas, drained and rinsed<br>
+            • 1/3 cup (80ml) high-quality tahini<br>
+            • 1/4 cup (60ml) fresh lemon juice<br>
+            • 3 medium cloves garlic, minced<br>
+            • 2 tbsp extra virgin olive oil<br>
+            • 1 tsp ground cumin<br>
+            • Salt to taste<br>
+            • Water as needed<br>
+            • Paprika and olive oil for garnish<br>`,
+            `<h3>Instructions:</h3>
+            1. In a food processor, combine tahini and lemon juice, process 1 min.<br>
+            2. Add garlic, olive oil, cumin, and salt. Process 30 sec.<br>
+            3. Add half the chickpeas, process 1 min. Add remaining chickpeas, process until smooth.<br>
+            4. Add water as needed for creamy texture.<br>
+            5. Serve in a bowl, drizzle with olive oil, sprinkle paprika.<br>`)">
+            <div class="caption">Classic Hummus</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="ar-3.jpg" alt="Mansaf" onclick="showRecipe('Traditional Mansaf',
+            '<h3>Ingredients (Serves 8-10):</h3>\
+            <h4>For the Meat:</h4>\
+            • 1.5 kg lamb shoulder or leg, cut into large pieces<br>\
+            • 2 cups (500ml) jameed (fermented dried yogurt), soaked and prepared<br>\
+            • 2 large onions, finely chopped<br>\
+            • 4 cardamom pods, lightly crushed<br>\
+            • 2 bay leaves<br>\
+            • 2 cinnamon sticks<br>\
+            • 2 teaspoons salt<br>\
+            • 1 teaspoon black pepper<br>\
+            <h4>For the Rice:</h4>\
+            • 4 cups (800g) long-grain rice<br>\
+            • 8 cups (2L) water<br>\
+            • 2 tablespoons ghee or butter<br>\
+            • 2 cardamom pods<br>\
+            • 1 teaspoon salt<br>\
+            <h4>For Garnish:</h4>\
+            • 1 cup pine nuts, toasted<br>\
+            • 1/2 cup almonds, blanched and toasted<br>\
+            • 2 large Arabic flatbreads (shrak or markook)<br>\
+            • Fresh parsley for garnish<br>\
+            <h4>Time Required:</h4>\
+            • Prep Time: 30 minutes<br>\
+            • Cooking Time: 2.5-3 hours<br>\
+            • Total Time: 3-3.5 hours<br>\
+            <h4>Difficulty Level: Advanced</h4>',
+            '<h3>Detailed Instructions:</h3>\
+            <h4>Preparing the Jameed:</h4>\
+            1. If using solid jameed, soak in water overnight, then blend until smooth. If using liquid jameed, dilute with water to reach desired consistency.<br><br>\
+            <h4>Cooking the Meat:</h4>\
+            2. In a large pot, brown meat pieces on all sides over medium-high heat (about 8-10 minutes).<br><br>\
+            3. Add chopped onions and cook until translucent (5-7 minutes).<br><br>\
+            4. Add cardamom, bay leaves, cinnamon, salt, and pepper. Cover with water and bring to a boil.<br><br>\
+            5. Reduce heat, cover, and simmer for 1.5 hours or until meat is tender.<br><br>\
+            <h4>Preparing the Rice:</h4>\
+            6. Wash rice thoroughly until water runs clear. Soak for 30 minutes.<br><br>\
+            7. In a large pot, heat ghee, add cardamom pods, then add drained rice.<br><br>\
+            8. Add water and salt, bring to a boil, then reduce heat and cook until tender (about 20 minutes).<br><br>\
+            <h4>Assembly:</h4>\
+            9. Tear flatbread into large pieces and arrange on serving platter.<br><br>\
+            10. Pour some jameed sauce over bread to soften.<br><br>\
+            11. Spread rice over the bread.<br><br>\
+            12. Arrange meat pieces on top of rice.<br><br>\
+            13. Pour remaining hot jameed sauce over the dish.<br><br>\
+            14. Garnish with toasted nuts and parsley.<br><br>\
+            <h4>Tips:</h4>\
+            • Authentic jameed can be replaced with a mixture of yogurt and buttermilk<br>\
+            • The meat should be very tender but not falling apart<br>\
+            • Serve immediately while hot<br>\
+            • Traditionally eaten with the right hand')">
+            <div class="caption">Traditional Mansaf</div>
+        </div>
+        <div class="gallery-item">
+            <img src="ar-4.webp" alt="Falafel" onclick="showRecipe('Crispy Falafel',
+            '<h3>Ingredients (Makes 24-30 falafels, Serves 6-8):</h3>\
+            <h4>For the Falafel Mix:</h4>\
+            • 2 cups (400g) dried chickpeas, soaked overnight (do not use canned)<br>\
+            • 1 medium onion, quartered (about 1 cup)<br>\
+            • 4 large cloves garlic, peeled<br>\
+            • 1 cup fresh parsley, packed<br>\
+            • 1 cup fresh cilantro, packed<br>\
+            • 2 teaspoons ground cumin<br>\
+            • 2 teaspoons ground coriander<br>\
+            • 1 teaspoon cayenne pepper (adjust to taste)<br>\
+            • 1 teaspoon baking soda<br>\
+            • 1.5 teaspoons salt<br>\
+            • 1 teaspoon black pepper<br>\
+            • Vegetable oil for frying<br>\
+            <h4>For Serving:</h4>\
+            • Pita bread<br>\
+            • Tahini sauce<br>\
+            • Fresh vegetables (tomatoes, cucumbers, lettuce)<br>\
+            • Pickled turnips (optional)<br>\
+            <h4>Time Required:</h4>\
+            • Soaking Time: 12-24 hours<br>\
+            • Prep Time: 20 minutes<br>\
+            • Chilling Time: 1-2 hours<br>\
+            • Cooking Time: 30 minutes<br>\
+            • Total Time: 14-26 hours<br>\
+            <h4>Difficulty Level: Medium</h4>',
+            '<h3>Detailed Instructions:</h3>\
+            <h4>Preparation:</h4>\
+            1. Soak dried chickpeas in cold water for 12-24 hours. They will double in size. Drain well.<br><br>\
+            2. Add soaked chickpeas, onion, garlic, parsley, and cilantro to a food processor. Pulse until finely minced but not pureed.<br><br>\
+            3. Add cumin, coriander, cayenne, salt, and pepper. Pulse to combine.<br><br>\
+            4. Transfer mixture to a bowl, cover, and refrigerate for 1-2 hours.<br><br>\
+            <h4>Forming and Frying:</h4>\
+            5. Just before frying, add baking soda to the mixture and mix well.<br><br>\
+            6. Form mixture into balls (about 2 tablespoons each), slightly flattening them.<br><br>\
+            7. Heat oil in a deep pot to 350°F (175°C).<br><br>\
+            8. Fry in batches for 3-4 minutes until deep golden brown.<br><br>\
+            9. Drain on paper towels.<br><br>\
+            <h4>Serving Suggestions:</h4>\
+            10. Serve hot in pita pockets with tahini sauce and fresh vegetables.<br><br>\
+            <h4>Tips:</h4>\
+            • DO NOT use canned chickpeas - they will make mushy falafel<br>\
+            • Mixture should hold together when pressed; if not, process a bit more<br>\
+            • Oil temperature is crucial - too hot will burn outside leaving inside raw<br>\
+            • Can be frozen before frying for up to 1 month<br>\
+            • For a healthier version, can be baked at 375°F (190°C) for 25-30 minutes')">
+            <div class="caption">Crispy Falafel</div>
+        </div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <div id="recipeIngredients"></div>
+            <div id="recipeSteps"></div>
+        </div>
+    </div>
+
+    <center><a href="Home.html" class="back-button">Back to Home</a></center>
+
+    <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  
+    </footer>
+
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerHTML = title;
+            document.getElementById('recipeIngredients').innerHTML = ingredients;
+            document.getElementById('recipeSteps').innerHTML = steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('recipeModal')) {
+                closeRecipe();
+            }
+        }
+    </script>
+</body>
+</html> 
