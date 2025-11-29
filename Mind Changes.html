@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100">;
+    <title>Recipe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+        }
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: #fff;
+            font-size: x-large;
+        }
+        .heading img {
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+            margin-left: 20px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            font-weight: bold;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px black;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.15);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+        .button-link {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            background-color: rgb(228, 170, 108);
+            border: 2px solid black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .button-link:hover {
+            background-color: black;
+            color: rgb(232, 148, 12);
+        }
+        footer {
+            text-align: center;
+            background-color: #02121e;
+            color: orange;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Lord's Taste Book</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+    <div class="container">
+        <div class="card">
+            <img src="Panjab.jpg" alt="Punjabi Cuisine">
+            <div class="card-content">
+                <h2>Punjabi Cuisine</h2>
+                <a href="kitt 2.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="chinese 2.jpg" alt="Chinese Cuisine">
+            <div class="card-content">
+                <h2>Chinese Cuisine</h2>
+                <a href="posadi gumpe.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="misal pav.jpg" alt="Marathi Cuisine">
+            <div class="card-content">
+                <h2>Marathi Cuisine</h2>
+                <a href="Shri Ananth.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Karnataka.jpg" alt="Karnataka Cuisine">
+            <div class="card-content">
+                <h2>Karnataka Cuisine</h2>
+                <a href="beach.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="GSB.jpg" alt="GSB Cuisine">
+            <div class="card-content">
+                <h2>GSB Cuisine</h2>
+                <a href="svvt.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Rajasthan.jpg" alt="Rajasthan Cuisine">
+            <div class="card-content">
+                <h2>Rajasthan Cuisine</h2>
+                <a href="fort.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Puttu.jpg" alt="Kerala Cuisine">
+            <div class="card-content">
+                <h2>Kerala Cuisine</h2>
+                <a href="posadi gumpe.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Japanese.jpg" alt="Japanese Cuisine">
+            <div class="card-content">
+                <h2>Japanese Cuisine</h2>
+                <a href="posadi gumpe.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Rasagulla.jpg" alt="Bengali Cuisine">
+            <div class="card-content">
+                <h2>Bengali Cuisine</h2>
+                <a href="posadi gumpe.html" class="button-link">Click here</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Developed by Suhas Pai & Team</p>
+    </footer>
+</body>
+</html>

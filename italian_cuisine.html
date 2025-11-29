@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Italian Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+            text-align: center;
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+        .head {
+            margin-left: 38%;
+            margin-top: 10px;
+            display: flex;
+            font-style: italic;
+            font-size: larger;
+            text-decoration: underline;
+        }
+        .head img {
+            border-radius: 70px;
+            padding: 8px;
+            width: 10%;
+            height: 10%;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .caption {
+            font-size: 1.5rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e0b05;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            width: 100%;
+            background-color: #02121e;
+            color: orange;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Italian Cuisine</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+
+    <div class="head" style="text-align:center;">
+        <h1>Authentic Italian Recipes</h1>
+    </div>
+
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="itimage-1.jpg" alt="Carbonara" onclick="showRecipe('Spaghetti Carbonara', 
+            `<h3>Serving Size:</h3>Serves 4<br>
+            <h4>Prep Time:</h4>10 min<br>
+            <h4>Cook Time:</h4>20 min<br>
+            <h4>Total Time:</h4>30 min<br>
+            <h3>Ingredients:</h3>
+            • 400g spaghetti<br>
+            • 200g guanciale or pancetta, diced<br>
+            • 4 large egg yolks<br>
+            • 2 whole eggs<br>
+            • 100g Pecorino Romano, freshly grated<br>
+            • 100g Parmigiano Reggiano, freshly grated<br>
+            • Black pepper, freshly ground<br>
+            • Salt for pasta water<br>`,
+            `<h3>Instructions:</h3>
+            1. Bring a large pot of salted water to boil.<br>
+            2. Cook spaghetti according to package instructions.<br>
+            3. While pasta cooks, crisp guanciale in a large pan until golden.<br>
+            4. In a bowl, whisk eggs, egg yolks, and cheese together.<br>
+            5. Reserve 1 cup pasta water, drain pasta.<br>
+            6. Off heat, quickly toss hot pasta with guanciale and egg mixture.<br>
+            7. Add pasta water as needed for creamy sauce.<br>
+            8. Season generously with black pepper.<br>
+            9. Serve immediately with extra cheese.`)">
+            <div class="caption">Spaghetti Carbonara</div>
+        </div>
+        <div class="gallery-item">
+            <img src="itimage-2.webp" alt="Pizza Margherita" onclick="showRecipe('Pizza Margherita',
+            `<h3>Serving Size:</h3>Serves 2-3<br>
+            <h4>Prep Time:</h4>20 min (+2 hrs rising)<br>
+            <h4>Cook Time:</h4>10 min<br>
+            <h4>Total Time:</h4>2.5 hrs<br>
+            <h3>Ingredients:</h3>
+            <b>For the dough:</b><br>
+            • 500g 00 flour<br>
+            • 300ml lukewarm water<br>
+            • 7g active dry yeast<br>
+            • 1 tbsp olive oil<br>
+            • 1 tsp salt<br>
+            • 1 tsp sugar<br>
+            <b>For the topping:</b><br>
+            • San Marzano tomatoes<br>
+            • Fresh mozzarella<br>
+            • Fresh basil leaves<br>
+            • Extra virgin olive oil<br>
+            • Salt to taste<br>`,
+            `<h3>Instructions:</h3>
+            1. Mix yeast with warm water and sugar, let bloom 5 minutes.<br>
+            2. Mix flour and salt, then add yeast mixture and oil.<br>
+            3. Knead for 10 minutes until smooth.<br>
+            4. Let rise 2 hours.<br>
+            5. Divide dough, shape into pizzas.<br>
+            6. Top with crushed tomatoes, torn mozzarella.<br>
+            7. Bake at highest oven temperature (450-500°F) for 8-10 min.<br>
+            8. Add fresh basil and olive oil after baking.`)">
+            <div class="caption">Pizza Margherita</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="itimage-3.webp" alt="Osso Buco" onclick="showRecipe('Osso Buco alla Milanese',
+            '<h3>Ingredients:</h3>• 4 veal shanks<br>• 1 onion, diced<br>• 2 carrots, diced<br>• 2 celery stalks, diced<br>• 4 garlic cloves<br>• 1 cup white wine<br>• 2 cups beef broth<br>• 1 can crushed tomatoes<br>• Fresh herbs (thyme, rosemary)<br>• Flour for dredging<br>• Salt and pepper<br>• Gremolata for garnish',
+            '<h3>Instructions:</h3>1. Dredge veal shanks in flour, season well<br>2. Brown shanks in olive oil<br>3. Remove meat, sauté vegetables until soft<br>4. Add wine, reduce by half<br>5. Return meat, add broth and tomatoes<br>6. Add herbs, bring to simmer<br>7. Cover and cook 2-2.5 hours until tender<br>8. Garnish with gremolata before serving')">
+            <div class="caption">Osso Buco alla Milanese</div>
+        </div>
+        <div class="gallery-item">
+            <img src="itimage-4.jpg" alt="Tiramisu" onclick="showRecipe('Classic Tiramisu',
+            '<h3>Ingredients:</h3>• 6 egg yolks<br>• 1 cup sugar<br>• 500g mascarpone cheese<br>• 1 cup strong espresso, cooled<br>• 24-30 ladyfinger cookies<br>• Cocoa powder for dusting<br>• 2 tbsp Marsala wine (optional)<br>• Pinch of salt',
+            '<h3>Instructions:</h3>1. Whisk egg yolks and sugar until pale<br>2. Add mascarpone, mix until smooth<br>3. Dip ladyfingers quickly in coffee mixture<br>4. Layer soaked ladyfingers in dish<br>5. Spread half mascarpone mixture<br>6. Repeat layers<br>7. Dust top with cocoa powder<br>8. Refrigerate 4-6 hours or overnight')">
+            <div class="caption">Classic Tiramisu</div>
+        </div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <div id="recipeIngredients"></div>
+            <div id="recipeSteps"></div>
+        </div>
+    </div>
+
+    <center><a href="Home.html" class="back-button">Back to Home</a></center>
+
+    <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  
+    </footer>
+
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerHTML = title;
+            document.getElementById('recipeIngredients').innerHTML = ingredients;
+            document.getElementById('recipeSteps').innerHTML = steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('recipeModal')) {
+                closeRecipe();
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Recipe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;  
+              }  
+        .para {
+            color: rgb(94, 11, 5);
+            max-width: 95%;
+            margin: auto;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }      
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+        .vary{
+            text-align: center;
+            font-weight: bold;
+            font-size: large;
+            text-decoration: underline;
+            color: rgb(87, 10, 50)
+        }
+        .section1 {
+	        margin: 40px;
+		    font-size:30px;
+                    }                  
+                    .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        #searchBar {
+            width: 80%;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #ff6347;
+            border-radius: 8px;
+        }
+        .card {
+            background: rgb(220, 210, 210);
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px black;
+            overflow: hidden;
+            transition: transform 0.3s, opacity 0.5s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: scale(1.10);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+        .button-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(45deg, rgb(90, 38, 4), rgb(147, 69, 18));
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(90, 38, 4, 0.2);
+            font-family: 'Dancing Script', cursive;
+            z-index: 1;
+        }
+
+        .button-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(45deg, rgb(241, 165, 88), rgb(255, 217, 161));
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+
+        .button-link:hover {
+            color: rgb(90, 38, 4);
+            border-color: rgb(90, 38, 4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(90, 38, 4, 0.3);
+        }
+
+        .button-link:hover::before {
+            width: 100%;
+        }
+
+        .button-link:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(90, 38, 4, 0.2);
+        }
+        .footer {
+			margin: 0%;
+			background-color: rgb(4, 4, 39);
+			color: azure;
+		}		
+	    .footer {
+			margin: 0%;
+			background-color: rgb(2, 2, 39);
+			color: azure;
+		}		
+	    footer {
+            width: 100%;
+            background: linear-gradient(to right, #02121e, #042236);
+            color: #ffa500;
+            padding: 60px 40px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+        }
+
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        footer div:hover {
+            transform: translateY(-5px);
+        }
+
+        footer h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        footer p {
+            color: #ffa500;
+            margin: 10px 0;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        footer p:hover {
+            color: #ffffff;
+        }
+
+        footer strong {
+            color: #ff8c00;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 20px;
+            }
+            
+            footer div {
+                min-width: 200px;
+                padding: 10px;
+            }
+        }
+       .search-box {
+        text-align: center;
+        margin: 20px 0;
+        position: relative; 
+        }
+
+        #searchInput {
+        width: 20%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #6a1b09; 
+        border-radius: 20px;
+        outline: none;
+         }
+        #searchoutout {
+        max-width: 10%;
+        }
+
+        #suggestionList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        width: 20%;
+        left: 40%;
+        border: 1px solid #6a1b09;
+        border-radius: 10px;
+        background: linear-gradient(to right, rgb(90, 38, 4), rgb(147, 69, 18));
+        color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+        }
+
+        #suggestionList li {
+        padding: 8px 12px;
+        cursor: pointer;
+        }
+
+        #suggestionList li:hover {
+        background-color: #000000;
+        color: orangered;
+        border-radius: 5px;
+        }
+
+        .hidden {
+        display: none;
+        }
+  </style>
+</head>
+<body>
+    <div class="heading">
+    <h1>Lord's Taste Book</h1>
+    <img src="2 logo.png" alt="logo">
+</div>
+<br>
+  
+<script>
+// Intersection Observer for fade-in animation
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target); // Stop observing once faded in
+        }
+    });
+}, observerOptions);
+
+// Observe all cards when the page loads
+window.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => observer.observe(card));
+});
+
+// Show Suggestions on Click
+function showSuggestions() {
+         document.getElementById('suggestionList').classList.remove('hidden');
+    }
+
+    // Select Cuisine from Suggestions
+    function selectCuisine(cuisine) {
+        document.getElementById('searchInput').value = cuisine;
+        searchCuisine(); // Trigger search after selection
+        document.getElementById('suggestionList').classList.add('hidden');
+    }
+
+    // Search Filter Function
+    function searchCuisine() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            const title = card.querySelector('h2').textContent.toLowerCase();
+            card.style.display = title.includes(input) ? "block" : "none";
+        });
+    }
+
+    // Hide Suggestions when Clicking Outside
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.search-box')) {
+            document.getElementById('suggestionList').classList.add('hidden');
+        }
+    });
+</script>
+
+<div class="para">
+<p><ins><b>Welcome to Lord's Cookbook – Where Every Recipe Tells a Story!</b></ins><br>
+
+    Cooking is more than just making food; it's an experience filled with love, creativity, and flavors that bring people together. Whether you're a beginner exploring the joy of cooking or a seasoned chef looking for inspiration, you've come to the right place!
+    
+    Here, you'll find a collection of handpicked recipes, from traditional favorites to modern delights, all crafted to bring delicious moments to your kitchen. So, grab your ingredients, put on your apron, and let's create something amazing together!
+    
+    Happy Cooking!</p>
+</div>
+<div class="border">
+<img src="Border.png" alt="border">
+</div>
+<div class="border2">
+<img src="another border.png" alt="border2">
+</div>
+<br></br>
+  
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Cuisine..." onkeyup="searchCuisine()" onclick="showSuggestions()">
+    <ul id="suggestionList" class="hidden">
+        <li onclick="selectCuisine('Kerala Cuisine')">Kerala Cuisine</li>
+        <li onclick="selectCuisine('Japanese Cuisine')">Japanese Cuisine</li>
+        <li onclick="selectCuisine('Thai Cuisine')">Thai Cuisine</li>
+        <li onclick="selectCuisine('Karnataka Cuisine')">Karnataka Cuisine</li>
+        <li onclick="selectCuisine('Rajasthan Cuisine')">Punjabi Cuisine</li>
+        <li onclick="selectCuisine('Chinese Cuisine')">Chinese Cuisine</li>
+        <li onclick="selectCuisine('Marathi Cuisine')">Marathii Cuisine</li>
+        <li onclick="selectCuisine('Arabian Cuisine')">Arabian Cuisine</li>
+        <li onclick="selectCuisine('French Cuisine')">French Cuisine</li>
+        <li onclick="selectCuisine('Mexican Cuisine')">Mexican Cuisine</li>
+        <li onclick="selectCuisine('Bengali Cuisine')">Bengali Cuisine</li>
+        <li onclick="selectCuisine('Italian Cuisine')">Italians Cuisine</li>
+    </ul>
+</div>
+
+<div class="vary">
+    <h1>Varieties</h1>
+    </div>
+    <div class="container">
+        <div class="card">
+            <img src="Panjab.jpg" alt="Punjabi Cuisine">
+            <div class="card-content">
+                <h2>Punjabi Cuisine</h2>
+                <a href="punjabi_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Gobi.jpg" alt="Chinese Cuisine">
+            <div class="card-content">
+                <h2>Chinese Cuisine</h2>
+                <a href="chinese_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="misal pav.jpg" alt="Marathi Cuisine">
+            <div class="card-content">
+                <h2>Marathi Cuisine</h2>
+                <a href="marathi_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Karnataka.jpg" alt="Karnataka Cuisine">
+            <div class="card-content">
+                <h2>Karnataka Cuisine</h2>
+                <a href="karnataka_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="arabyes.webp" alt="Arab stuff">
+            <div class="card-content">
+                <h2>Arabic Cuisine</h2>
+                <a href="arabic_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Rajasthan.jpg" alt="Rajasthan Cuisine">
+            <div class="card-content">
+                <h2>Rajasthan Cuisine</h2>
+                <a href="rajasthani_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Puttu.jpg" alt="Kerala Cuisine">
+            <div class="card-content">
+                <h2>Kerala Cuisine</h2>
+                <a href="kerala_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Japanese.jpg" alt="Japanese Cuisine">
+            <div class="card-content">
+                <h2>Japanese Cuisine</h2>
+                <a href="japanese_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Rasagulla.jpg" alt="Bengali Cuisine">
+            <div class="card-content">
+                <h2>Bengali Cuisine</h2>
+                <a href="bengali_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Pizza.jpg" alt="Italian Cuisine">
+            <div class="card-content">
+                <h2>Italian Cuisine</h2>
+                <a href="italian_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Tacos.jpg" alt="Mexican Cuisine">
+            <div class="card-content">
+                <h2>Mexican Cuisine</h2>
+                <a href="mexican_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="French.jpg" alt="French Cuisine">
+            <div class="card-content">
+                <h2>French Cuisine</h2>
+                <a href="french_cuisine.html" class="button-link">Click here</a>
+            </div>
+        </div>
+    </div>
+            <footer id="footer">
+                <div class="footer-section">
+                    <h3>Developer</h3>
+                    <p><strong>Email: </strong>suhaspai13@gmail.com</p>
+                    <p><strong>Email: </strong>varunbhatkk@gmail.com</p>
+                    <p><strong>Email: </strong>tanmaybhandari50@gmail.com</p>
+                    <p><strong>Email: </strong>shankarkini1780@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Team Members</h3>
+                    <p>Suhas S Pai</p>   
+                    <p>Varun K Bhat</p>
+                    <p>Y Kripashankar Kini</p>
+                    <p>Tanmay Vinayak Deshbhandari</p>            
+                </div>  
+                <div class="footer-section">
+                    <h3>Contacts</h3>
+                    <p>730XXXXXXX</p>   
+                    <p>790XXXXXXX</p>
+                    <p>973XXXXXXX</p>
+                    <p>959XXXXXX</p>            
+                </div>  
+            </footer>
+</body>
+</html>

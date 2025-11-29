@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Kerala Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+            text-align: center;
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .caption {
+            font-size: 1.5rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e0b05;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            width: 100%;
+            background-color: #02121e;
+            color: orange;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Kerala Cuisine</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="keimage-1.jpg" alt="Appam" onclick="showRecipe('Appam with Stew', 
+            `<h3>Serving Size:</h3>Serves 4-6<br>
+            <h4>Prep Time:</h4>20 min (+4-8 hrs soaking/fermenting)<br>
+            <h4>Cook Time:</h4>40 min<br>
+            <h4>Total Time:</h4>~5-9 hrs<br>
+            <h3>Ingredients:</h3>
+            <b>For Appam:</b><br>
+            • 2 cups raw rice<br>
+            • 1/2 cup fresh grated coconut<br>
+            • 1/2 tsp active dry yeast<br>
+            • 1 tsp sugar<br>
+            • 1/2 cup cooked rice<br>
+            • 1/2 tsp salt<br>
+            • Water as needed<br>
+            <b>For Stew:</b><br>
+            • 2 cups mixed vegetables (carrots, potatoes, beans), diced<br>
+            • 1 cup thick coconut milk<br>
+            • 1 cup thin coconut milk<br>
+            • 2 green chilies, slit<br>
+            • 1 inch ginger, sliced<br>
+            • 2 onions, sliced<br>
+            • 1 sprig curry leaves<br>
+            • 2 cardamom pods<br>
+            • 2 cloves<br>
+            • 1 small cinnamon stick<br>
+            • 2 tbsp coconut oil<br>
+            • Salt to taste<br>`,
+            `<h3>Instructions:</h3>
+            <b>For Appam:</b><br>
+            1. Wash and soak raw rice for 4-5 hours.<br>
+            2. In a blender, add soaked rice, grated coconut, cooked rice, and enough water to make a smooth batter.<br>
+            3. Dissolve yeast and sugar in 2 tbsp warm water, let sit 10 min until frothy. Add to batter.<br>
+            4. Mix well, cover, and ferment overnight (6-8 hrs) in a warm place.<br>
+            5. Add salt, mix gently. Batter should be pourable.<br>
+            6. Heat an appam pan, pour a ladleful of batter, swirl to coat sides, cover and cook 2-3 min until edges are lacy and center is cooked.<br>
+            <b>For Stew:</b><br>
+            7. Heat coconut oil in a pan. Add cardamom, cloves, cinnamon, and curry leaves. Sauté 30 sec.<br>
+            8. Add onions, ginger, green chilies. Sauté until onions are soft.<br>
+            9. Add diced vegetables, salt, and thin coconut milk. Cover and cook until veggies are tender (10-12 min).<br>
+            10. Add thick coconut milk, simmer gently (do not boil) for 2-3 min.<br>
+            11. Serve hot with appam.`)">
+            <div class="caption">Appam with Stew</div>
+        </div>
+        <div class="gallery-item">
+            <img src="keimage-2.jpg" alt="Fish Curry" onclick="showRecipe('Kerala Fish Curry',
+            `<h3>Serving Size:</h3>Serves 4<br>
+            <h4>Prep Time:</h4>15 min<br>
+            <h4>Cook Time:</h4>30 min<br>
+            <h4>Total Time:</h4>45 min<br>
+            <h3>Ingredients:</h3>
+            • 500g king fish/seer fish, cut into medium pieces<br>
+            • 2 tbsp Kashmiri red chili powder<br>
+            • 1/2 tsp turmeric powder<br>
+            • 1 tbsp coriander powder<br>
+            • 2 sprigs curry leaves<br>
+            • 2 green chilies, slit<br>
+            • 1 inch ginger, sliced<br>
+            • 4-5 shallots, sliced<br>
+            • 2 pieces kudampuli (Malabar tamarind), soaked in 1/2 cup warm water<br>
+            • 2 cups hot water<br>
+            • 2 tbsp coconut oil<br>
+            • Salt to taste<br>`,
+            `<h3>Instructions:</h3>
+            1. Clean and cut fish into medium pieces. Soak kudampuli in warm water for 10 min.<br>
+            2. Heat coconut oil in a clay pot or pan. Add curry leaves, shallots, ginger, and green chilies. Sauté until shallots are soft.<br>
+            3. Add chili powder, turmeric, and coriander powder. Sauté on low heat for 1 min.<br>
+            4. Add kudampuli (with soaking water), salt, and 2 cups hot water. Bring to a boil.<br>
+            5. Add fish pieces, cover, and simmer on low for 15-20 min until fish is cooked and gravy thickens.<br>
+            6. Drizzle with more coconut oil and curry leaves before serving.`)">
+            <div class="caption">Kerala Fish Curry</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="keimage-3.jpg" alt="Parotta" onclick="showRecipe('Malabar Parotta with Kadala Curry',
+            `<h3>Serving Size:</h3>Serves 4<br>
+            <h4>Prep Time:</h4>30 min (+2 hrs resting dough, overnight soaking)<br>
+            <h4>Cook Time:</h4>45 min<br>
+            <h4>Total Time:</h4>~3.5 hrs<br>
+            <h3>Ingredients:</h3>
+            <b>For Parotta:</b><br>
+            • 3 cups all-purpose flour (maida)<br>
+            • 1 egg<br>
+            • 1/2 cup oil<br>
+            • 1 cup water (approx.)<br>
+            • 1/2 tsp salt<br>
+            <b>For Kadala Curry:</b><br>
+            • 2 cups black chickpeas (soaked overnight)<br>
+            • 2 onions, finely chopped<br>
+            • 3 tomatoes, chopped<br>
+            • 2 tbsp ginger-garlic paste<br>
+            • 2 tsp fennel seeds<br>
+            • 2 tsp coriander powder<br>
+            • 1 tsp red chili powder<br>
+            • 1/2 tsp turmeric powder<br>
+            • 1 sprig curry leaves<br>
+            • 2 tbsp coconut oil<br>
+            • Salt to taste<br>`,
+            `<h3>Instructions:</h3>
+            <b>For Parotta:</b><br>
+            1. In a bowl, mix flour, salt, egg, and oil. Add water gradually to form a soft dough.<br>
+            2. Knead for 10 min until smooth. Cover and rest for 2 hrs.<br>
+            3. Divide dough into balls. Roll each ball thin, brush with oil, pleat and coil, then roll flat again.<br>
+            4. Cook on a hot griddle with oil until golden and flaky.<br>
+            <b>For Kadala Curry:</b><br>
+            5. Pressure cook soaked chickpeas with salt until soft (4-5 whistles).<br>
+            6. Heat coconut oil, add fennel seeds, curry leaves, onions. Sauté until golden.<br>
+            7. Add ginger-garlic paste, sauté 1 min. Add tomatoes, cook until soft.<br>
+            8. Add coriander, chili, turmeric powder. Sauté 1 min.<br>
+            9. Add cooked chickpeas with water. Simmer 10-15 min until thick.<br>
+            10. Serve hot with parotta.`)">
+            <div class="caption">Malabar Parotta with Kadala</div>
+        </div>
+        <div class="gallery-item">
+            <img src="keimage-4.webp" alt="Ada Pradhaman" onclick="showRecipe('Ada Pradhaman',
+            `<h3>Serving Size:</h3>Serves 6<br>
+            <h4>Prep Time:</h4>15 min<br>
+            <h4>Cook Time:</h4>45 min<br>
+            <h4>Total Time:</h4>1 hr<br>
+            <h3>Ingredients:</h3>
+            • 1 cup rice ada (rice flakes for payasam)<br>
+            • 2 cups thick coconut milk<br>
+            • 1 cup thin coconut milk<br>
+            • 1 cup jaggery, grated<br>
+            • 1/2 cup ghee<br>
+            • 1/2 cup cashew nuts<br>
+            • 1/2 cup raisins<br>
+            • 4-5 cardamom pods, powdered<br>
+            • 1 cup grated coconut (for garnish)<br>`,
+            `<h3>Instructions:</h3>
+            1. Cook rice ada in boiling water until soft. Drain and set aside.<br>
+            2. Melt jaggery with 1/2 cup water, strain to remove impurities.<br>
+            3. Fry cashews and raisins in ghee, set aside.<br>
+            4. Add cooked ada to jaggery syrup, mix well.<br>
+            5. Add thin coconut milk, simmer 5 min.<br>
+            6. Add thick coconut milk, cardamom powder, simmer gently (do not boil) for 2-3 min.<br>
+            7. Garnish with fried cashews, raisins, and grated coconut. Serve warm or chilled.`)">
+            <div class="caption">Ada Pradhaman</div>
+        </div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <div id="recipeIngredients"></div>
+            <div id="recipeSteps"></div>
+        </div>
+    </div>
+
+    <center><a href="Home.html" class="back-button">Back to Home</a></center>
+
+    <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  
+    </footer>
+
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerHTML = title;
+            document.getElementById('recipeIngredients').innerHTML = ingredients;
+            document.getElementById('recipeSteps').innerHTML = steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('recipeModal')) {
+                closeRecipe();
+            }
+        }
+    </script>
+</body>
+</html> 

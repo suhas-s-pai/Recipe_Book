@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Punjabi Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+            text-align: center;
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .caption {
+            font-size: 1.5rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e0b05;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            width: 100%;
+            background-color: #02121e;
+            color: orange;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Punjabi Cuisine</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="pimage-1.jpg" alt="Butter Chicken" onclick="showRecipe('Butter Chicken', 
+            `<h3>Serving Size:</h3>Serves 4<br>
+            <h4>Prep Time:</h4>20 min (+4-6 hrs marination)<br>
+            <h4>Cook Time:</h4>40 min<br>
+            <h4>Total Time:</h4>~5-7 hrs<br>
+            <h3>Ingredients:</h3>
+            <b>For Chicken Marinade:</b><br>
+            • 750g chicken thighs, boneless<br>
+            • 1 cup yogurt<br>
+            • 2 tbsp ginger-garlic paste<br>
+            • 2 tsp garam masala<br>
+            • 1 tsp red chili powder<br>
+            • 1 tsp turmeric<br>
+            • Salt to taste<br>
+            <b>For Gravy:</b><br>
+            • 2 cups tomato puree<br>
+            • 1/2 cup butter<br>
+            • 1 cup heavy cream<br>
+            • 2 tbsp kasuri methi<br>
+            • 1 tbsp honey<br>
+            • 4 green cardamom pods<br>
+            • 1 inch cinnamon stick<br>
+            • 3 cloves<br>
+            • Salt to taste<br>`,
+            `<h3>Instructions:</h3>
+            1. Marinate chicken with yogurt, ginger-garlic paste, garam masala, chili powder, turmeric, and salt for 4-6 hrs.<br>
+            2. Grill or pan-fry chicken until charred and cooked through.<br>
+            3. Heat butter, add cardamom, cinnamon, cloves.<br>
+            4. Add tomato puree, simmer until thickened.<br>
+            5. Add cream, kasuri methi, and honey.<br>
+            6. Add grilled chicken pieces, simmer 10-15 min.<br>
+            7. Finish with more butter and cream. Serve hot with naan or rice.`)">
+            <div class="caption">Butter Chicken</div>
+        </div>
+        <div class="gallery-item">
+            <img src="pimage-2.webp" alt="Dal Makhani" onclick="showRecipe('Dal Makhani',
+            `<h3>Serving Size:</h3>Serves 6<br>
+            <h4>Prep Time:</h4>15 min (+overnight soaking)<br>
+            <h4>Cook Time:</h4>3 hrs<br>
+            <h4>Total Time:</h4>~4 hrs<br>
+            <h3>Ingredients:</h3>
+            • 1 cup black lentils (urad dal)<br>
+            • 1/4 cup red kidney beans<br>
+            • 1/2 cup butter<br>
+            • 1 cup cream<br>
+            • 2 onions, finely chopped<br>
+            • 2 tomatoes, pureed<br>
+            • 2 tbsp ginger-garlic paste<br>
+            • 2 tsp cumin seeds<br>
+            • 1 tsp garam masala<br>
+            • 1 tsp red chili powder<br>
+            • 1 tbsp kasuri methi<br>
+            • Salt to taste<br>`,
+            `<h3>Instructions:</h3>
+            1. Soak lentils and beans overnight, drain.<br>
+            2. Pressure cook with water and salt until soft.<br>
+            3. Heat butter, add cumin seeds, onions, sauté until golden.<br>
+            4. Add ginger-garlic paste, tomatoes, cook until oil separates.<br>
+            5. Add cooked dal and beans, simmer 2-3 hrs on low heat.<br>
+            6. Add cream, garam masala, kasuri methi, simmer 10 min.<br>
+            7. Serve hot with rice or naan.`)">
+            <div class="caption">Dal Makhani</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="pimage-3.jpg" alt="Sarson ka Saag" onclick="showRecipe('Sarson ka Saag with Makki Roti',
+            '<h3>Ingredients:</h3>For Saag:<br>• 1 kg mustard greens<br>• 250g spinach<br>• 2 onions, chopped<br>• 2 tomatoes, chopped<br>• Green chilies to taste<br>• Ginger-garlic paste<br>• Makki ka atta (cornmeal)<br><br>For Makki Roti:<br>• 2 cups makki ka atta<br>• Hot water for kneading<br>• Ghee for cooking<br>• Salt to taste',
+            '<h3>Instructions:</h3>For Saag:<br>1. Clean and chop greens<br>2. Pressure cook with spices<br>3. Grind to a coarse paste<br>4. Temper with ghee and garlic<br><br>For Makki Roti:<br>1. Knead cornmeal into soft dough<br>2. Make small balls<br>3. Roll into thick rotis<br>4. Cook on hot tawa with ghee<br>5. Serve hot with saag and butter')">
+            <div class="caption">Sarson ka Saag</div>
+        </div>
+        <div class="gallery-item">
+            <img src="pimage-4.jpg" alt="Gajar ka Halwa" onclick="showRecipe('Gajar ka Halwa',
+            '<h3>Ingredients:</h3>• 1 kg red carrots, grated<br>• 1 liter full-fat milk<br>• 1 cup sugar<br>• 1/2 cup ghee<br>• 1/2 cup khoya (reduced milk solids)<br>• 1/2 cup mixed nuts (almonds, pistachios)<br>• 1/2 tsp cardamom powder<br>• Saffron strands (optional)',
+            '<h3>Instructions:</h3>1. Cook carrots and milk until reduced<br>2. Add ghee and continue cooking<br>3. Add sugar, cook until thickened<br>4. Add khoya and cardamom powder<br>5. Cook until deep red color<br>6. Garnish with nuts<br>7. Serve hot or cold<br>8. Optional: Add saffron for aroma')">
+            <div class="caption">Gajar ka Halwa</div>
+        </div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <div id="recipeIngredients"></div>
+            <div id="recipeSteps"></div>
+        </div>
+    </div>
+
+    <center><a href="Home.html" class="back-button">Back to Home</a></center>
+
+    <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  
+    </footer>
+
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerHTML = title;
+            document.getElementById('recipeIngredients').innerHTML = ingredients;
+            document.getElementById('recipeSteps').innerHTML = steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('recipeModal')) {
+                closeRecipe();
+            }
+        }
+    </script>
+</body>
+</html> 

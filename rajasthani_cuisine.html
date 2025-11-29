@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Rajasthani Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+            text-align: center;
+        }
+        .head {
+            margin-left: 38%;
+            margin-top: 10px;
+            display: flex;
+            font-style: italic;
+            font-size: larger;
+            text-decoration: underline;
+            text-align: center;
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .caption {
+            font-size: 1.5rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e0b05;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            width: 100%;
+            background-color: #02121e;
+            color: orange;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Rajasthani Cuisine</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+
+    <div class="head">
+        <h1>Authentic Rajasthani Recipes</h1>
+    </div>
+
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="raimage-1.jpg" alt="Dal Baati Churma" onclick="showRecipe('Dal Baati Churma', 
+            `<h3>Serving Size:</h3>Serves 6<br>
+            <h4>Prep Time:</h4>30 min (+30 min resting)<br>
+            <h4>Cook Time:</h4>1 hr<br>
+            <h4>Total Time:</h4>2 hrs<br>
+            <h3>Ingredients:</h3>
+            <b>For Baati:</b><br>
+            • 2 cups whole wheat flour<br>
+            • 1/2 cup semolina<br>
+            • 1/2 cup ghee<br>
+            • 1/2 tsp salt<br>
+            <b>For Dal:</b><br>
+            • 1/2 cup toor dal<br>
+            • 1/4 cup chana dal<br>
+            • 1/4 cup moong dal<br>
+            • 2 tbsp ghee<br>
+            • 1 tsp cumin seeds<br>
+            • 1 tsp ginger-garlic paste<br>
+            • 1/2 tsp turmeric<br>
+            • 1/2 tsp red chili powder<br>
+            • 1/2 tsp coriander powder<br>
+            • 1/2 tsp garam masala<br>
+            • Salt to taste<br>
+            <b>For Churma:</b><br>
+            • 2 baatis, crushed<br>
+            • 1/4 cup powdered sugar<br>
+            • 1/4 tsp cardamom powder<br>`,
+            `<h3>Instructions:</h3>
+            <b>For Baati:</b><br>
+            1. Mix flour, semolina, salt, and ghee. Add water to make stiff dough. Rest 30 min.<br>
+            2. Shape into balls, make a dent, bake at 180°C for 40 min until golden.<br>
+            <b>For Dal:</b><br>
+            3. Wash and soak dals 30 min. Pressure cook with turmeric and salt until soft.<br>
+            4. Heat ghee, add cumin, ginger-garlic paste, spices. Add cooked dal, simmer 10 min.<br>
+            <b>For Churma:</b><br>
+            5. Crush 2 baatis, mix with sugar and cardamom.<br>
+            6. Serve hot dal with baati, churma as dessert.`)">
+            <div class="caption">Dal Baati Churma</div>
+        </div>
+        <div class="gallery-item">
+            <img src="raimage-2.jpg" alt="Laal Maas" onclick="showRecipe('Laal Maas',
+            `<h3>Serving Size:</h3>Serves 4<br>
+            <h4>Prep Time:</h4>20 min (+1 hr marination)<br>
+            <h4>Cook Time:</h4>1 hr<br>
+            <h4>Total Time:</h4>2 hrs 20 min<br>
+            <h3>Ingredients:</h3>
+            • 1kg mutton<br>
+            • 15-20 red Mathania chilies<br>
+            • 8-10 garlic cloves<br>
+            • 2 inch ginger<br>
+            • 1 cup curd<br>
+            • 2 tbsp ghee or mustard oil<br>
+            • 2 onions, sliced<br>
+            • 1 tsp coriander powder<br>
+            • 1/2 tsp turmeric<br>
+            • 1/2 tsp cumin seeds<br>
+            • 4 green cardamoms<br>
+            • 1 inch cinnamon stick<br>
+            • Salt to taste<br>`,
+            `<h3>Instructions:</h3>
+            1. Soak chilies, make paste with garlic and ginger.<br>
+            2. Marinate mutton with curd, chili paste, turmeric, salt for 1 hr.<br>
+            3. Heat ghee, add cumin, cardamom, cinnamon, onions. Sauté until golden.<br>
+            4. Add marinated mutton, coriander powder, cook 10 min.<br>
+            5. Add water, cover and cook 1 hr until tender.<br>
+            6. Serve hot with rice or roti.`)">
+            <div class="caption">Laal Maas</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="raimage-3.jpg" alt="Gatte ki Sabzi" onclick="showRecipe('Gatte ki Sabzi',
+            '<h3>Ingredients:</h3>For Gatte:<br>• 2 cups besan (gram flour)<br>• 1/2 cup oil<br>• Spices (red chili, turmeric)<br>• Carom seeds<br><br>For Curry:<br>• Yogurt<br>• Besan<br>• Onion-tomato paste<br>• Whole spices<br>• Fresh coriander<br>• Ghee for cooking',
+            '<h3>Instructions:</h3>1. Make firm besan dough<br>2. Shape into cylinders<br>3. Boil in water till done<br>4. Prepare yogurt curry base<br>5. Add spices and besan<br>6. Cook gravy till thick<br>7. Add sliced gatte<br>8. Simmer for 10 minutes<br>9. Garnish with coriander')">
+            <div class="caption">Gatte ki Sabzi</div>
+        </div>
+        <div class="gallery-item">
+            <img src="raimage-4.webp" alt="Ghevar" onclick="showRecipe('Ghevar',
+            '<h3>Ingredients:</h3>• 2 cups all-purpose flour<br>• 1/2 cup ghee<br>• Ice cold water<br>• Ghee for frying<br><br>For Topping:<br>• Sugar syrup<br>• Malai (cream)<br>• Chopped nuts<br>• Saffron strands<br>• Cardamom powder',
+            '<h3>Instructions:</h3>1. Make thin batter<br>2. Heat ghee in special mold<br>3. Pour batter in spiral<br>4. Fry till light golden<br>5. Soak in sugar syrup<br>6. Top with malai<br>7. Garnish with nuts<br>8. Sprinkle cardamom powder<br>9. Serve immediately')">
+            <div class="caption">Ghevar</div>
+        </div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <div id="recipeIngredients"></div>
+            <div id="recipeSteps"></div>
+        </div>
+    </div>
+
+    <center><a href="Home.html" class="back-button">Back to Home</a></center>
+
+    <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  
+    </footer>
+
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerHTML = title;
+            document.getElementById('recipeIngredients').innerHTML = ingredients;
+            document.getElementById('recipeSteps').innerHTML = steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('recipeModal')) {
+                closeRecipe();
+            }
+        }
+    </script>
+</body>
+</html> 

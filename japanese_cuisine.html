@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Japanese Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+            text-align: center;
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .caption {
+            font-size: 1.5rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e0b05;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            width: 100%;
+            background-color: #02121e;
+            color: orange;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Japanese Cuisine</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="jaimage-1.webp" alt="Ramen" onclick="showRecipe('Tonkotsu Ramen', 
+            `<h3>Serving Size:</h3>Serves 4<br>
+            <h4>Prep Time:</h4>30 min<br>
+            <h4>Cook Time:</h4>12 hrs<br>
+            <h4>Total Time:</h4>12.5 hrs<br>
+            <h3>Ingredients:</h3>
+            <b>For the broth:</b><br>
+            • 2 lbs pork bones<br>
+            • 2 onions, halved<br>
+            • 6 garlic cloves<br>
+            • 2-inch ginger, sliced<br>
+            • 2 sheets kombu<br>
+            • 2 tbsp sesame oil<br>
+            <b>For serving:</b><br>
+            • Fresh ramen noodles<br>
+            • Chashu pork<br>
+            • Soft-boiled eggs (ajitsuke tamago)<br>
+            • Green onions<br>
+            • Nori sheets<br>
+            • Bamboo shoots<br>
+            • Black garlic oil (mayu)<br>`,
+            `<h3>Instructions:</h3>
+            1. Blanch pork bones for 10 minutes.<br>
+            2. Roast bones and vegetables until browned.<br>
+            3. Simmer bones and aromatics for 12 hours.<br>
+            4. Strain and season broth.<br>
+            5. Cook fresh ramen noodles.<br>
+            6. Prepare toppings.<br>
+            7. Assemble: noodles, hot broth, toppings.<br>
+            8. Finish with garlic oil and green onions.`)">
+            <div class="caption">Tonkotsu Ramen</div>
+        </div>
+        <div class="gallery-item">
+            <img src="jaimage-2.jpg" alt="Sushi" onclick="showRecipe('Sushi Roll (Maki)',
+            `<h3>Serving Size:</h3>Makes 2 rolls (12-16 pieces)<br>
+            <h4>Prep Time:</h4>30 min<br>
+            <h4>Cook Time:</h4>20 min<br>
+            <h4>Total Time:</h4>50 min<br>
+            <h3>Ingredients:</h3>
+            • 2 cups sushi rice<br>
+            • 2.5 cups water<br>
+            • 1/4 cup rice vinegar<br>
+            • 1 tbsp sugar<br>
+            • 1/2 tsp salt<br>
+            • 2 nori sheets<br>
+            • Sushi-grade fish (salmon/tuna)<br>
+            • Cucumber<br>
+            • Avocado<br>
+            • Wasabi<br>
+            • Pickled ginger<br>
+            • Soy sauce for serving<br>`,
+            `<h3>Instructions:</h3>
+            1. Rinse rice until water runs clear.<br>
+            2. Cook rice in rice cooker or pot.<br>
+            3. Mix vinegar, sugar, salt; fold into rice.<br>
+            4. Place nori on bamboo mat.<br>
+            5. Spread rice on nori, leaving top edge.<br>
+            6. Add fillings in center.<br>
+            7. Roll tightly using bamboo mat.<br>
+            8. Cut with wet knife into 6-8 pieces.`)">
+            <div class="caption">Sushi Roll</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="jaimage-3.jpg" alt="Tempura" onclick="showRecipe('Tempura',
+            '<h3>Ingredients:</h3>For the batter:<br>• 1 cup ice-cold water<br>• 1 egg yolk<br>• 1 cup all-purpose flour<br><br>For frying:<br>• Assorted vegetables (sweet potato, eggplant, shishito)<br>• Large shrimp, peeled<br>• Vegetable oil for deep frying<br>• Tempura dipping sauce (tentsuyu)<br>• Grated daikon radish',
+            '<h3>Instructions:</h3>1. Prepare vegetables and shrimp<br>2. Heat oil to 375°F<br>3. Mix ice water and egg yolk<br>4. Quickly fold in flour (lumps okay)<br>5. Dip ingredients in batter<br>6. Fry until light golden and crisp<br>7. Drain on paper towels<br>8. Serve with tentsuyu and daikon')">
+            <div class="caption">Tempura</div>
+        </div>
+        <div class="gallery-item">
+            <img src="jaimage-4.webp" alt="Matcha Dessert" onclick="showRecipe('Matcha Green Tea Ice Cream',
+            '<h3>Ingredients:</h3>• 2 cups heavy cream<br>• 1 cup whole milk<br>• 4 egg yolks<br>• 2/3 cup sugar<br>• 2-3 tbsp high-quality matcha powder<br>• 1/4 tsp vanilla extract<br>• Pinch of salt<br>• Optional: mochi pieces for topping',
+            '<h3>Instructions:</h3>1. Whisk matcha with a little hot water<br>2. Heat cream and milk until steaming<br>3. Whisk egg yolks and sugar<br>4. Temper eggs with hot cream mixture<br>5. Cook until thickened<br>6. Stir in matcha mixture<br>7. Chill thoroughly<br>8. Churn in ice cream maker')">
+            <div class="caption">Matcha Ice Cream</div>
+        </div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <div id="recipeIngredients"></div>
+            <div id="recipeSteps"></div>
+        </div>
+    </div>
+
+    <center><a href="Home.html" class="back-button">Back to Home</a></center>
+
+    <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  
+    </footer>
+
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerHTML = title;
+            document.getElementById('recipeIngredients').innerHTML = ingredients;
+            document.getElementById('recipeSteps').innerHTML = steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('recipeModal')) {
+                closeRecipe();
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100";>
+    <title>Marathi Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(255, 217, 161), rgb(241, 165, 88));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            display: flex;
+            text-align: center;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: rgb(255, 255, 255);
+            font-size: x-large;
+        }
+        .heading img {
+            margin-top: 39px;
+            height: 125px;
+            width: 125px;
+            border-radius: 100px;
+        }
+        .heading h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 29%;
+            padding: 0px 10px 0px 0px;
+            text-align: center;
+        }
+        .head {
+            margin-left: 38%;
+            margin-top: 10px;
+            display: flex;
+            font-style: italic;
+            font-size: larger;
+            text-decoration: underline;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 500px;
+            height: 350px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .caption {
+            font-size: 1.5rem;
+            color: #5e0b05;
+            font-weight: bold;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e0b05;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(rgb(90, 38, 4), rgb(147, 69, 18));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            width: 100%;
+            background-color: #02121e;
+            color: orange;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+        footer div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        .border img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 77%;
+        }
+        .border2 img {
+            height: 35%;
+            width: 22%;
+            position: absolute;
+            top: 1%;
+            left: 1%;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Marathi Cuisine</h1>
+        <img src="2 logo.png" alt="logo">
+    </div>
+
+    <div class="head">
+        <h1>Authentic Maharashtrian Recipes</h1>
+    </div>
+
+    <div class="border">
+        <img src="Border.png" alt="border">
+    </div>
+    <div class="border2">
+        <img src="another border.png" alt="border2">
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="maimage-1.webp" alt="Misal Pav" onclick="showRecipe('Misal Pav', 
+            `<h3>Serving Size:</h3>Serves 4<br>
+            <h4>Prep Time:</h4>20 min (+8 hrs soaking)<br>
+            <h4>Cook Time:</h4>40 min<br>
+            <h4>Total Time:</h4>~9 hrs<br>
+            <h3>Ingredients:</h3>
+            <b>For Misal:</b><br>
+            • 2 cups sprouted moth beans<br>
+            • 2 onions, chopped<br>
+            • 2 tomatoes, chopped<br>
+            • 1 tbsp ginger-garlic paste<br>
+            • 2 tbsp misal masala<br>
+            • 2 tbsp oil<br>
+            <b>For Kat/Rassa:</b><br>
+            • 1/2 cup grated coconut<br>
+            • 4 dried red chilies<br>
+            • 1 tsp garam masala<br>
+            <b>For Garnish:</b><br>
+            • 1 cup farsan/mixture<br>
+            • 1 onion, chopped<br>
+            • 1/4 cup coriander, chopped<br>
+            • Lemon wedges<br>
+            • Butter pav<br>`,
+            `<h3>Instructions:</h3>
+            1. Soak moth beans overnight, drain and sprout (8 hrs).<br>
+            2. Pressure cook sprouted beans with salt for 2 whistles.<br>
+            3. Heat oil, sauté onions, ginger-garlic paste, and tomatoes.<br>
+            4. Add misal masala, cook 2 min.<br>
+            5. Add cooked beans, mix well.<br>
+            6. For kat: roast coconut, chilies, blend with garam masala and water.<br>
+            7. Add kat to beans, simmer 10 min.<br>
+            8. Serve in bowl, top with farsan, onions, coriander, lemon. Serve with buttered pav.`)">
+            <div class="caption">Misal Pav</div>
+        </div>
+        <div class="gallery-item">
+            <img src="maimage-2.jpg" alt="Puran Poli" onclick="showRecipe('Puran Poli',
+            `<h3>Serving Size:</h3>Serves 8<br>
+            <h4>Prep Time:</h4>30 min<br>
+            <h4>Cook Time:</h4>40 min<br>
+            <h4>Total Time:</h4>1 hr 10 min<br>
+            <h3>Ingredients:</h3>
+            <b>For Puran:</b><br>
+            • 1 cup chana dal<br>
+            • 1 cup jaggery<br>
+            • 1/2 tsp cardamom powder<br>
+            • 1/4 tsp nutmeg powder<br>
+            <b>For Poli:</b><br>
+            • 2 cups whole wheat flour<br>
+            • 1/4 tsp salt<br>
+            • Water for kneading<br>
+            • Ghee for cooking<br>`,
+            `<h3>Instructions:</h3>
+            1. Cook chana dal until soft, drain excess water.<br>
+            2. Add jaggery, cook until mixture thickens.<br>
+            3. Add cardamom and nutmeg powder, cool.<br>
+            4. Knead flour with salt and water to soft dough.<br>
+            5. Divide dough and puran into balls.<br>
+            6. Stuff dough balls with puran, roll gently.<br>
+            7. Cook on hot tava with ghee until golden.<br>
+            8. Serve hot with more ghee.`)">
+            <div class="caption">Puran Poli</div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="maimage-3.jpg" alt="Vada Pav" onclick="showRecipe('Vada Pav',
+            '<h3>Ingredients:</h3>For Vada:<br>• 4 potatoes, boiled<br>• Green chilies<br>• Ginger-garlic paste<br>• Curry leaves<br>• Besan for coating<br><br>For Chutney:<br>• Dry coconut<br>• Garlic<br>• Red chilies<br>• Green chutney<br>• Pav buns',
+            '<h3>Instructions:</h3>1. Mash potatoes with spices<br>2. Make small balls<br>3. Prepare besan batter<br>4. Dip and deep fry<br>5. Prepare dry garlic chutney<br>6. Make green chutney<br>7. Slit pav, add chutneys<br>8. Place hot vada<br>9. Serve with fried chilies')">
+            <div class="caption">Vada Pav</div>
+        </div>
+        <div class="gallery-item">
+            <img src="maimage-4.jpg" alt="Modak" onclick="showRecipe('Ukadiche Modak',
+            '<h3>Ingredients:</h3>For Shell:<br>• 2 cups rice flour<br>• Water for cooking<br>• Salt to taste<br>• Oil for greasing<br><br>For Filling:<br>• Fresh coconut, grated<br>• Jaggery<br>• Cardamom powder<br>• Nutmeg powder<br>• Poppy seeds (optional)',
+            '<h3>Instructions:</h3>1. Prepare rice flour dough<br>2. Mix coconut and jaggery<br>3. Add spice powders<br>4. Make small dough balls<br>5. Shape into cups<br>6. Fill with mixture<br>7. Pleat and seal tops<br>8. Steam for 15 minutes<br>9. Serve hot with ghee')">
+            <div class="caption">Modak</div>
+        </div>
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h2 id="recipeTitle"></h2>
+            <div id="recipeIngredients"></div>
+            <div id="recipeSteps"></div>
+        </div>
+    </div>
+
+    <center><a href="Home.html" class="back-button">Back to Home</a></center>
+
+    <footer id="footer">
+				<div class="1">
+				  <h3 style="color: beige;">DEVELOPER</h3>
+				  <p><strong>Email:</strong>suhaspai13@gmail.com</p>
+                  <p><strong>Email:</strong>varunbhatkk@gmail.com</p>
+                  <p><strong>Email:</strong>tanmaybhandari50@gmail.com</p>
+                  <p><strong>Email:</strong>shankarkini1780@gmail.com</p>
+			  </div>
+              <div class="1">
+                <h3 style="color: beige;">Team Members</h3>
+                <p>Suhas S Pai</p>   
+                <p>Varun K Bhat</p>
+                <p>Y Kripashankar Kini</p>
+                <p>Tanmay Vinayak Deshbhandari</p>            
+            </div>  
+            <div class="1">
+                <h3 style="color: beige;">Contacts</h3>
+                <p>730XXXXXXX</p>   
+                <p>790XXXXXXX</p>
+                <p>973XXXXXXX</p>
+                <p>959XXXXXX</p>            
+            </div>  
+    </footer>
+
+    <script>
+        function showRecipe(title, ingredients, steps) {
+            document.getElementById('recipeTitle').innerHTML = title;
+            document.getElementById('recipeIngredients').innerHTML = ingredients;
+            document.getElementById('recipeSteps').innerHTML = steps;
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeRecipe() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('recipeModal')) {
+                closeRecipe();
+            }
+        }
+    </script>
+</body>
+</html> 
